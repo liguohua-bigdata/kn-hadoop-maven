@@ -1,0 +1,68 @@
+
+${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/orign/w
+
+mahout在命令行模式下要求的文本是这个结构的：每个类别的文件，放到同一个文件夹下，文件夹的名称就是类别。
+
+一、上传满足格式的文件到HDFS
+hadoop fs -rm -r /input/mahout/pa3/*
+hadoop fs -mkdir -p /input/mahout/pa3/raw/
+hadoop fs -put -p  ./raw/*  /input/mahout/pa3/raw/
+
+
+二、将数据集转化为序列文件
+1.转化
+${MAHOUT_HOME}/bin/mahout seqdirectory \
+-i /input/mahout/pa3/raw \
+-o /input/mahout/pa3/seq
+2.查看
+${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/seq/part-m-00000
+
+三、将序列文件转化为向量
+${MAHOUT_HOME}/bin/mahout seq2sparse \
+-i /input/mahout/pa3/seq \
+-o /input/mahout/pa3/vec \
+-wt tfidf \
+-lnorm \
+-nv
+
+
+四、将向量拆分为训练集和测验集
+
+${MAHOUT_HOME}/bin/mahout split \
+-i /input/mahout/pa3/vec/tfidf-vectors \
+-tr /input/mahout/pa3/re/train-vectors \
+-te /input/mahout/pa3/re/test-vectors \
+-xm sequential \
+-rp 50 \
+-seq \
+-ow
+
+
+${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/re/test-vectors
+${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/re/train-vectors
+
+
+
+五.训练分类器
+${MAHOUT_HOME}/bin/mahout trainnb \
+-i /input/mahout/pa3/re/train-vectors \
+-o /input/mahout/pa3/mi/nbmodel \
+-li /input/mahout/pa3/mi/labelindex \
+-ow \
+-c
+
+
+${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/mi/labelindex
+六、测试分类器
+${MAHOUT_HOME}/bin/mahout testnb \
+-i /input/mahout/pa3/re/test-vectors \
+-m /input/mahout/pa3/mi/nbmodel \
+-l /input/mahout/pa3/mi/labelindex \
+-o /input/mahout/pa3/tst  \
+-ow \
+-c
+
+
+${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/tst/part-m-00000
+
+hadoop fs -text /input/mahout/pa3/tst/part-m-00000
