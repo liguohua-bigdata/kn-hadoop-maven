@@ -28,14 +28,14 @@ public class ParseWikiAndProfession {
         }
     }
 
-    static class MyMapperP extends Mapper<Text, Text, Text, Text> {
+    static class MyMapperProfession extends Mapper<Text, Text, Text, Text> {
         protected void map(Text key, Text value, org.apache.hadoop.mapreduce.Mapper<LongWritable, Text, Text, Text>.Context context) throws java.io.IOException, InterruptedException {
             String[] pairs = value.toString().trim().split(":");
             parseFileLine(context, pairs);
         }
     }
 
-    static class MyMapperW extends Mapper<Text, Text, Text, Text> {
+    static class MyMapperWiki extends Mapper<Text, Text, Text, Text> {
         protected void map(Text key, Text value, org.apache.hadoop.mapreduce.Mapper<LongWritable, Text, Text, Text>.Context context) throws java.io.IOException, InterruptedException {
             String[] pairs = value.toString().trim().split("\t");
             parseFileLine(context, pairs);
@@ -43,7 +43,7 @@ public class ParseWikiAndProfession {
     }
 
 
-    static class MyReducePW extends Reducer<Text, Text, Text, Text> {
+    static class MyReduceProfessionAndWiki extends Reducer<Text, Text, Text, Text> {
         private MultipleOutputs multipleOutputs;
 
         //1.set up multipleOutputs for save data into  separate files
@@ -85,12 +85,12 @@ public class ParseWikiAndProfession {
         job.setMapOutputValueClass(Text.class);
 
         // 设置reduce
-        job.setReducerClass(MyReducePW.class);
+        job.setReducerClass(MyReduceProfessionAndWiki.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         // 设置最终结果输出路径
-        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, MyMapperP.class);
-        MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, MyMapperW.class);
+        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, MyMapperProfession.class);
+        MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, MyMapperWiki.class);
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.waitForCompletion(true);
     }
