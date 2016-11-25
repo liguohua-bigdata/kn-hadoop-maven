@@ -104,6 +104,6 @@ public class ParseWikiAndProfession {
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, MyMapperWiki.class);
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         //6.提交job
-        job.waitForCompletion(true);
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }  
