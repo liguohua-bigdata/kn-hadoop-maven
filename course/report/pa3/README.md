@@ -82,7 +82,7 @@ ${MAHOUT_HOME}/bin/mahout trainnb \
 2.查看命令
 ${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/mi/labelindex
 ```
-![](images/Snip20161125_4.png) 
+![](images/Snip20161125_10.png) 
 
 
 #####5.测试分类器
@@ -99,9 +99,7 @@ ${MAHOUT_HOME}/bin/mahout testnb \
 2.查看命令
 ${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/tst/part-m-00000
 ```
-![](images/Snip20161125_7.png) 
-
-
+![](images/Snip20161125_11.png) 
 
 
 ##三、Hadoop集群运行情况
