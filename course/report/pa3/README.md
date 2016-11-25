@@ -85,7 +85,7 @@ ${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/mi/labelindex
 ![](images/Snip20161125_10.png) 
 
 
-#####5.测试分类器
+####5.测试分类器
 ```
 1.测试命令
 ${MAHOUT_HOME}/bin/mahout testnb \
@@ -104,3 +104,14 @@ ${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/tst/part-m-00000
 
 ##三、Hadoop集群运行情况
 ![](images/Snip20161125_7.png) 
+
+
+##四、参考文献          
+####1.贝叶斯算法参考链接
+```
+http://mahout.apache.org/users/classification/bayesian.html
+```
+####2.新闻分类参考链接
+```
+http://mahout.apache.org/users/classification/twenty-newsgroups.html
+```
