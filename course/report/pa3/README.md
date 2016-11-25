@@ -33,7 +33,7 @@ ${MAHOUT_HOME}/bin/mahout seqdirectory \
 2.查看命令
 ${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/seq/part-m-00000
 ```
-![](images/Snip20161125_1.png) 
+![](images/Snip20161125_5.png) 
 
 
 ####2.将序列文件转化为向量
@@ -102,3 +102,5 @@ ${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/tst/part-m-00000
 
 
 
+##三、Hadoop集群运行情况
+![](images/Snip20161125_7.png) 

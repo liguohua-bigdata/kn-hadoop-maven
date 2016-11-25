@@ -70,7 +70,7 @@ public class ParseWikiAndProfession {
         args = new String[3];
         args[0] = "hdfs://qingcheng11:9000/input/mahout/pa3/pre/p";
         args[1] = "hdfs://qingcheng11:9000/input/mahout/pa3/pre/w";
-        args[2] = "hdfs://qingcheng11:9000/input/mahout/pa3/preout/";
+        args[2] = "hdfs://qingcheng11:9000/input/mahout/pa3/raw/";
         //1. check parameters
         if (args.length != 3) {
             System.err.println("Usage: GetProfessionLemma  <path to professions.txt>  <path to wiki-big-lemma-index>  <output-dir> ");
