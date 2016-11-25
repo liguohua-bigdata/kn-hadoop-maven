@@ -94,6 +94,4 @@ public class ParseWikiAndProfession {
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.waitForCompletion(true);
     }
-
-
 }  
