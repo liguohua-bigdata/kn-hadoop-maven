@@ -18,7 +18,4 @@ hadoop jar  /Users/liguohua/Documents/F/code/idea/git/kn-hadoop-maven/target/Kan
 参考github
 https://github.com/cenxiguan/brandeis.big_data
 https://github.com/gekonwi/brandeis.big_data# kn-hadoop-maven
-# zkn-bigdata
-# zkn-bigdata
-# zkn-bigdata
-# kn-hadoop-maven
+
