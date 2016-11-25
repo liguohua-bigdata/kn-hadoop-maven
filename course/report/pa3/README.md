@@ -115,3 +115,9 @@ http://mahout.apache.org/users/classification/bayesian.html
 ```
 http://mahout.apache.org/users/classification/twenty-newsgroups.html
 ```
+
+
+
+
+##五、类设计情况
+![](images/Snip20161125_12.png) 
