@@ -45,7 +45,7 @@ ${MAHOUT_HOME}/bin/mahout seq2sparse \
 -lnorm \
 -nv
 ```
-![](images/Snip20161125_2.png) 
+![](images/Snip20161125_8.png) 
 
 
 ####3.将向量拆分为训练集和测验集
@@ -65,7 +65,7 @@ ${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/re/test-vectors
 ${MAHOUT_HOME}/bin/mahout seqdumper -i /input/mahout/pa3/re/train-vectors
 
 ```
-![](images/Snip20161125_3.png) 
+![](images/Snip20161125_9.png) 
 
 
 
@@ -99,6 +99,8 @@ ${MAHOUT_HOME}/bin/mahout testnb \
 2.查看命令
 ${MAHOUT_HOME}/bin/mahout seqdumper -i	/input/mahout/pa3/tst/part-m-00000
 ```
+![](images/Snip20161125_7.png) 
+
 
 
 
